@@ -1,0 +1,12 @@
+﻿  infix_postfix_translation.c
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(9,6): warning C4013: 'expr' undefined; assuming extern returning int
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(15,25): warning C4047: '!=': 'int' differs in levels of indirection from 'char [2]'
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(16,7): warning C4013: 'term' undefined; assuming extern returning int
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(19,10): warning C4013: 'match' undefined; assuming extern returning int
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(35,12): warning C4013: 'error' undefined; assuming extern returning int
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(53,9): warning C4013: 'exit' undefined; assuming extern returning int
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(54): warning C4716: 'error': must return a value
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(48): warning C4716: 'match': must return a value
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(27): warning C4716: 'expr': must return a value
+E:\visual_studio_projects\learning_compilers\infix_postfix_translation.c(36): warning C4716: 'term': must return a value
+  learning_compilers.vcxproj -> E:\visual_studio_projects\learning_compilers\Debug\learning_compilers.exe
