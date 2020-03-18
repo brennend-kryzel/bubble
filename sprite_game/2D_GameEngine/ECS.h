@@ -58,10 +58,12 @@ public:
 	void update()
 	{
 		for (auto& c : components) c->update();
-		for (auto& c : components) c->draw();
 	}
 
-	void draw() {}
+	void draw()
+	{
+		for (auto& c : components) c->draw();
+	}
 	bool isActive() const { return active; }
 	void destroy() { active = false; }
 

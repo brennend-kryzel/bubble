@@ -1,21 +1,19 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "GameObject.h"
 #include"Map.h"
-#include"ECS.h"
 #include"Components.h"
 
 
 
 
-GameObject* player;
-GameObject* enemy;
+
 Map* map;
 
 SDL_Renderer* Game::renderer = nullptr;
 
 Manager manager;
-auto& newPlayer(manager.addEntity());
+auto& player(manager.addEntity());
+
 
 Game::Game(){}
 Game::~Game() {}
@@ -47,12 +45,14 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	}
 
-	player = new GameObject("assets/ssj.png",0,0);
-	enemy = new GameObject("assets/enemy_priest_t1.png",  50, 50);
+	
 	map = new Map();
 
-	newPlayer.addComponent<PositionComponent>();
-	newPlayer.getComponent<PositionComponent>().setPos(500, 500);
+	player.addComponent<PositionComponent>(100,500);
+	player.addComponent<SpriteComponent>("assets/ssj.png");
+
+
+	
 
 
 }
@@ -78,10 +78,8 @@ void Game::update()
 	
 	count++;
 //std::cout << count << std::endl;
-player->Update();
-enemy->Update();
+manager.refresh();
 manager.update();
-std::cout << newPlayer.getComponent<PositionComponent>().x() << "," << newPlayer.getComponent<PositionComponent>().y() << std::endl;
 
 }
 
@@ -89,8 +87,7 @@ void Game::render() {
 	SDL_RenderClear(renderer);
 	// this is where we  add stuff to render-whats rendered first will be below in the window, so map is above player
 	map->DrawMap();
-	player->Render();
-	enemy->Render();
+	manager.draw();
 	SDL_RenderPresent(renderer);
 
 }
