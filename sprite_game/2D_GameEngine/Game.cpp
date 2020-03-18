@@ -48,7 +48,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	
 	map = new Map();
 
-	player.addComponent<PositionComponent>(100,500);
+	player.addComponent<PositionComponent>();
 	player.addComponent<SpriteComponent>("assets/ssj.png");
 
 
@@ -74,12 +74,14 @@ void Game::handleEvents()
 }
 
 void Game::update()
-{
-	
-	count++;
-//std::cout << count << std::endl;
-manager.refresh();
-manager.update();
+{	
+ manager.refresh();
+ manager.update();
+
+ if (player.getComponent<PositionComponent>().x() > 100)
+ {
+	 player.getComponent<SpriteComponent>().setTex("assets/enemy_priest_t1.png");
+ }
 
 }
 

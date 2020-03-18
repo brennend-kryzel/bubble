@@ -13,9 +13,13 @@ public:
 	SpriteComponent() = default;
 	SpriteComponent(const char* path)
 	{
-		texture = TextureManager::LoadTexture(path);
+		setTex(path);
 	}
 
+	void setTex(const char* path)
+    {
+		texture = TextureManager::LoadTexture(path);
+	}
 	void init() override
 	{
 		position = &entity->getComponent<PositionComponent>();
